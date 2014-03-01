@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BeanExplore
+Bundle-SymbolicName: org.mitratul.plugin.beanexplore;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MITRATUL
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: org.mitratul.plugin.beanexplore.handlers.BeanExploreActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.filesystem,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.ui,
+ org.eclipse.ui.ide

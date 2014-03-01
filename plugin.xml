@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <!-- <extension
+         point="org.eclipse.ui.startup">
+      <startup class="org.mitratul.plugin.beanexplore.handlers.DummyStartupHandler"/>
+   </extension> -->
+
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="{tester - beanexplore}"
+            id="org.mitratul.plugin.cleanup.commands.createIndexCommand"
+            tooltip="{trigger test of beanexplorer}"
+            defaultHandler="org.mitratul.plugin.beanexplore.handlers.CreateIndexCommandHandler">
+      </command>
+      <command
+            name="{tester - beansearch}"
+            id="org.mitratul.plugin.cleanup.commands.searchBeanCommand"
+            tooltip="{trigger test of beansearch}"
+            defaultHandler="org.mitratul.plugin.beanexplore.handlers.SearchBeanCommandHandler">
+      </command>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="org.mitratul.plugin.cleanup.commands.createIndexCommand"
+               mnemonic="C"
+               id="org.mitratul.plugin.cleanup.popups.package.createIndexCommand">
+         </command>
+      </menuContribution>
+      
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+         <command
+               commandId="org.mitratul.plugin.cleanup.commands.createIndexCommand"
+               mnemonic="C"
+               id="org.mitratul.plugin.cleanup.popups.project.createIndexCommand">
+         </command>
+      </menuContribution>
+      
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.mitratul.plugin.cleanup.toolbars.beanExploreToolbar">
+            <command
+                  commandId="org.mitratul.plugin.cleanup.commands.searchBeanCommand"
+                  icon="icons/sample.gif"
+                  tooltip="{trigger test of beansearch}"
+                  id="org.mitratul.plugin.cleanup.toolbars.searchBeanCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+</plugin>
