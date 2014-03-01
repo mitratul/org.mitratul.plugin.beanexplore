@@ -2,10 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-   <!-- <extension
+   <extension
          point="org.eclipse.ui.startup">
       <startup class="org.mitratul.plugin.beanexplore.handlers.DummyStartupHandler"/>
-   </extension> -->
+   </extension>
 
 
    <extension

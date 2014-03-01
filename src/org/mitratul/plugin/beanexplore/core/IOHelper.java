@@ -43,10 +43,20 @@ public class IOHelper {
 	public IOHelper() {}
 	
 	public IOHelper(File pIndexDir) { 
-		indexDir.mkdirs();
 		indexDir = pIndexDir;
 		tmpFilesToDelete = new HashSet<String>();
 	}
+	
+//	public HashSet<String> getBeansDummy(InputStream xmlIs) {
+//		int s = 10000;
+//		HashSet<String> ts = new HashSet<String>(s);
+//		for (int i = 0; i < s; i++) {
+//			ts.add("SampleBean_" + i);
+//		}
+//		
+//		return ts;
+//	}
+
 
 
 	public boolean containsBean(JarFile jar, JarEntry jarElement) throws IOException {

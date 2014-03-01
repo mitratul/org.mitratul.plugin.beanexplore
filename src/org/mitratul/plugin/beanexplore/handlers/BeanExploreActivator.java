@@ -1,10 +1,8 @@
 package org.mitratul.plugin.beanexplore.handlers;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.mitratul.plugin.beanexplore.core.IOHelper;
@@ -28,22 +26,24 @@ public class BeanExploreActivator extends AbstractUIPlugin {
 
 	public BeanExploreActivator() {
 		super();
+		ioHelper = new IOHelper(this.getStateLocation().toFile());
+		classpathChangeListener = new ClasspathChangedListener();
 		System.out.println("Activator initiated");
 	}
 
 	public void start(BundleContext context) throws Exception {
-		File stateLocation = null;
-		try{
-			stateLocation = this.getStateLocation().toFile();
-		} catch (NullPointerException ex) {
-			//* fix for helios NPE
-			stateLocation = new File(ResourcesPlugin.getWorkspace().getRoot()
-					.getLocation().toOSString() + "/.metadata/.plugins/", 
-					"org.mitratul.plugin.beanexplore");
-		}
-		ioHelper = new IOHelper(stateLocation);
-		classpathChangeListener = new ClasspathChangedListener();
-		
+		//File stateLocation = null;
+		//try{
+		//	stateLocation = this.getStateLocation().toFile();
+		//} catch (NullPointerException ex) {
+		//	//* fix for helios NPE
+		//	stateLocation = new File(ResourcesPlugin.getWorkspace().getRoot()
+		//					.getLocation().toOSString() + "/.metadata/.plugins/", 
+		//					"org.mitratul.plugin.beanexplore");
+		//}
+		//ioHelper = new IOHelper(stateLocation);
+		//classpathChangeListener = new ClasspathChangedListener();
+
 		//* load the indices from already persisted data.
 		try {
 			loadFromFile();
